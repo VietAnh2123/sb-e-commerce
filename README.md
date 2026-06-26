@@ -1,58 +1,26 @@
-# React JS + Spring Boot + MySQL
-This project is upgrade from PRJ301 Project which was developed with Java JSP/Servlet
-## FEATURES
-- Register account
-- Log In/Log Out
-- Reset password when customer forgot
-- Change information
-- Change account's password
-- Find clothes by category or name
-- View clothes detail
-- Add to cart
-- Remove clothes from cart
-- Check out - send email has order's information to customer's email
-- Manage Order
-   + Update order status
-- Manage Product
-  + View Clothes list
-  + Update Clothes quantity
-- Manage Customer's Information
-  + View Customer list
-- View Statistic
-   + Quantity of clothes in store
-   + Total money
-   + Total order
-   + Quantity of customer
- 
-### User UI
-- Login
-![](/assets/login.png)
-- Register
-![](/assets/register.png)
-- Forgot Password
-![](/assets/forgotpassword.png)
-- Homepage
-![](/assets/homepage1.png)
-![](/assets/homepage2.png)
-- Shopping Screen
-![](/assets/shop.png)
-- Product detail
-![](/assets/productdetail.png)
-![](/assets/productdetail2.png)'
-- Shopping Cart
-![](/assets/cart.png)
-- Profile
-![](/assets/profile.png)
-- User Orders
-![](/assets/userorder.png)
+﻿# VA E-commerce
 
-### Admin UI
-- All Product
-![](/assets/products.png)
-- Dashboard
-![](/assets/chart.png)
-- Add new Product
-![](/assets/addproduct.png)
-- Orders
-![](/assets/orders.png)
-![](/assets/orderdetails.png)
+VA E-commerce is a demo e-commerce backend built with Spring Boot. It implements product, cart, order, and user management, with JWT authentication, role-based security and email notifications. It uses Spring Data JPA with MySQL, Cloudinary for image uploads, VNPAY/PayOS integrations for payments, OpenFeign for external services, WebSocket for real-time notifications, and OpenAPI (Swagger) for interactive API docs. The application is configured via environment variables declared in src/main/resources/application.properties.
+
+Prerequisites:
+- Java 21
+- Maven
+- MySQL (or provide JDBC URL via env)
+
+Quick start:
+1. Export required environment variables used in src/main/resources/application.properties (examples):
+   - LOCAL_DB, LOCAL_DB_USERNAME, LOCAL_DB_PASSWORD
+   - JWT_SECRET
+   - CLOUD_NAME, API_KEY, API_SECRET
+   - MAIL_USERNAME, MAIL_PASSWORD
+   - VNPAY_TMN_CODE, VNPAY_SECRET_KEY
+   - PAYOS_CLIENT_ID, PAYOS_API_KEY, PAYOS_CHECKSUM_KEY
+   - GG_CLIENT_ID, GG_CLIENT_SECRET
+2. Build: mvn clean package
+3. Run: java -jar target/spring-shopping-cart-0.0.1-SNAPSHOT.jar
+   or: mvn spring-boot:run
+
+API docs (Swagger/OpenAPI): http://localhost:8080/shop/api-docs
+
+# UI
+ Updating....
