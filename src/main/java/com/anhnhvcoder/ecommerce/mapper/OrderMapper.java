@@ -1,0 +1,29 @@
+package com.anhnhvcoder.ecommerce.mapper;
+
+import com.anhnhvcoder.ecommerce.dto.OrderDTO;
+import com.anhnhvcoder.ecommerce.model.Order;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+@Component
+@RequiredArgsConstructor
+public class OrderMapper {
+
+    private final OrderItemMapper orderItemMapper;
+    private final UserMapper userMapper;
+
+    public OrderDTO toOrderDTO(Order order) {
+        OrderDTO dto = new OrderDTO();
+        dto.setId(order.getId());
+        dto.setOrderDate(order.getOrderDate());
+        dto.setTotalAmount(order.getTotalAmount());
+        dto.setOrderStatus(order.getStatus().name());
+        dto.setPaymentStatus(order.getPaymentStatus().name());
+        dto.setPaymentType(order.getPaymentType().name());
+        dto.setOrderCode(order.getOrderCode());
+        dto.setOrderAddress(order.getOrderAddress());
+        dto.setItems(orderItemMapper.toOrderItemDTOSet(order.getOrderItems()));
+        dto.setUser(userMapper.toUserDTO(order.getUser()));
+        return dto;
+    }
+}
