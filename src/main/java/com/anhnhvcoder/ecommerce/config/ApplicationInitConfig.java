@@ -28,7 +28,7 @@ public class ApplicationInitConfig {
     @Bean
     ApplicationRunner init(UserRepository userRepository){
         return args -> {
-            if(roleRepository.findAll().isEmpty()){
+            if(roleRepository.count() < 1){
                 Role roleUser = new Role();
                 roleUser.setRoleName("ROLE_USER");
                 roleRepository.save(roleUser);
@@ -37,7 +37,7 @@ public class ApplicationInitConfig {
                 roleRepository.save(roleAdmin);
                 log.warn("Default roles created: ROLE_USER, ROLE_ADMIN");
             }
-            if(categoryRepository.findAll().isEmpty()){
+            if(categoryRepository.count() < 1){
                 Category c1 = new Category();
                 c1.setName("Áo thun");
                 categoryRepository.save(c1);

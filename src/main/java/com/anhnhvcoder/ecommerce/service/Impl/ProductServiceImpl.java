@@ -198,7 +198,21 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Page<Product> getProductsByPage(Pageable pageable) {
-        return productRepository.findAll(pageable);
+    public Page<Product> getProductsByPage(
+            String categoryName,
+            String brandName,
+            String search,
+            Pageable pageable) {
+        if (search == null)
+            search = "";
+
+        if (categoryName == null)
+            categoryName = "";
+
+        if (brandName == null)
+            brandName = "";
+
+        return productRepository.searchProducts(pageable, search, categoryName, brandName);
     }
+
 }

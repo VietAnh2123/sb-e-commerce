@@ -58,5 +58,5 @@ public interface ProductService {
 
     Size editSizeInventory(Long sizeId, int quantity);
 
-    Page<Product> getProductsByPage(Pageable pageable);
+    Page<Product> getProductsByPage(String categoryName, String brandName, String search, Pageable pageable);
 }

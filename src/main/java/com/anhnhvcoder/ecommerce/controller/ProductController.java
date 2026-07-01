@@ -144,10 +144,15 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<Product>> getProductsByPage(@RequestParam(name = "page", defaultValue = "0") int page,
-                                                           @RequestParam(name = "size") int size){
+    public ResponseEntity<Page<Product>> getProductsByPage(
+            @RequestParam(name = "categoryName", required = false) String categoryName,
+            @RequestParam(name = "brandName", required = false) String brandName,
+            @RequestParam(name = "search", required = false) String search,
+            @RequestParam(name = "page", defaultValue = "0") int page,
+            @RequestParam(name = "size") int size){
         Pageable pageable = PageRequest.of(page, size);
-        return ResponseEntity.ok(productService.getProductsByPage(pageable));
+        System.out.println("categoryName: " + categoryName + ", brandName: " + brandName + ", search: " + search);
+        return ResponseEntity.ok(productService.getProductsByPage(categoryName, brandName, search, pageable));
     }
 
 }
